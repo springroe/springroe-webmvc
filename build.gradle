@@ -19,6 +19,7 @@ allprojects {
     repositories {
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        maven { url 'https://repo.spring.io/milestone' }
         maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
     }
 }
@@ -28,16 +29,27 @@ subprojects {
 
     apply plugin: 'java-library'
 
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 
     group 'com.springroe.webmvc'
-    version = project.rootProject.version
+    version = springroeVersion
 
     dependencies {
 
-        implementation "io.github.springroe:springroe-data-core:$springroeVersion"
+        api "io.github.springroe:springroe-data-core:$springroeVersion"
 
+        // https://mvnrepository.com/artifact/org.springframework/spring-tx
+        implementation "org.springframework:spring-tx:${springVersion}"
+        // https://mvnrepository.com/artifact/org.springframework/spring-aop
+        implementation "org.springframework:spring-aop:${springVersion}"
+        // https://mvnrepository.com/artifact/org.springframework/spring-aop
+        implementation "org.springframework:spring-webmvc:${springVersion}"
+
+        implementation "io.swagger.core.v3:swagger-annotations:$swaggerVersion"
+
+        // https://mvnrepository.com/artifact/com.querydsl/querydsl-core
+        implementation "com.querydsl:querydsl-core:$querydslVersion"
 
         // https://mvnrepository.com/artifact/org.projectlombok/lombok
         compileOnly "org.projectlombok:lombok:$lombokVersion"

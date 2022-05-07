@@ -1,0 +1,1 @@
+package io.github.springroe.webmvc.message.exception;

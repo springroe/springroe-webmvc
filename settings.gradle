@@ -1,3 +1,17 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://repo.spring.io/milestone' }
+        gradlePluginPortal()
+    }
+}
 rootProject.name = 'springroe-webmvc'
 include 'springroe-webmvc-core'
-
+include 'springroe-webmvc-common'
+include 'springroe-webmvc-logging'
+include 'springroe-webmvc-auth'
+include 'springroe-webmvc-message'
+include 'springroe-webmvc-payment'
+include 'springroe-webmvc-wechat'
+include 'springroe-webmvc-wechat-com'
+include 'springroe-webmvc-dingtalk'
+include 'springroe-webmvc-feishu'
